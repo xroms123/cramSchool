@@ -16,3 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/auth/register/boss', 'User\RegisterController@bossRegister');
+Route::get('/class/transcript', 'Student\TranscriptController@showPage');
+Route::post('/class/update/dropdown', 'Student\TranscriptController@updateDropdown');
+// Route::get('/insert/data', 'InsertController@insertData');

@@ -4,15 +4,15 @@
 <form method="POST"  action="bossjoin.php" enctype="multipart/form-data">
   <div class="form-group">
     <label for="UA_PL">Privilege</label>
-    <input type="number" class="form-control" id="UA_PL" name="UA_PL" readonly="readonly" value="0" style="font-size:24px">
+    <input type="number" class="form-control" id="UA_PL" name="UA_PL" readonly="readonly" value = "0" style="font-size:24px">
   </div>
   <div class="form-group">
     <label for="identity">Identity</label>
-    <input type="text" class="form-control" id="identity" name="identity" readonly="readonly" value="B" style="font-size:24px">
+    <input type="text" class="form-control" id="identity" name="identity" readonly="readonly" value = "B" style="font-size:24px">
   </div>
   <div class="form-group">
     <label for="UA_VC">Company license</label>
-    <input type="text" class="form-control" name="UA_VC" id="UA_VC" readonly="readonly" value="<?php echo $UA_VC; ?>" style="font-size:24px">
+    <input type="text" class="form-control" name="UA_VC" id="UA_VC" readonly="readonly" value = {{$rand}} style="font-size:24px">
   </div>
   <div class="form-group">
     <label for="UA_Acu">User Account</label>
