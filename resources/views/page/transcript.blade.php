@@ -38,7 +38,10 @@
 
         // teacher select
         $('#teacher').change(function(){
+            // 每選擇一層就把欄位鎖住
             $('#teacher').attr('disabled', true);
+
+            // 設定要搜尋的欄位及資料
             let data = {
                 item : 'teacher',
                 value : $('#teacher').val()
@@ -46,11 +49,18 @@
             filter.push(data);
             sendData.nextLevel = 'class';
             sendData.filter = filter;
-            $.post('/class/update/dropdown',sendData,function(data){
-                for(let i in data){
-                    let element = `<option value = ${data[i]} > ${data[i]} </option>`
+
+            // 使用ajax到controller做資料庫篩選
+            $.post('/class/update/dropdown',sendData,function(result){
+
+                // 將回傳後的選項增加到 select 下面
+                for(let i in result){
+                    let element = `<option value = ${result[i]} > ${result[i]} </option>`
                     $('#class').append(element);
                 }
+
+                // 可以打開chrome開發工具點選console 看回傳的資料內容
+                console.log(result);
             })
         })
 
@@ -64,9 +74,9 @@
             filter.push(data);
             sendData.nextLevel = 'student';
             sendData.filter = filter;
-            $.post('/class/update/dropdown',sendData,function(data){
-                for(let i in data){
-                    let element = `<option value = ${data[i]} > ${data[i]} </option>`
+            $.post('/class/update/dropdown',sendData,function(result){
+                for(let i in result){
+                    let element = `<option value = ${result[i]} > ${result[i]} </option>`
                     $('#student').append(element);
                 }
             })
@@ -82,9 +92,9 @@
             filter.push(data);
             sendData.nextLevel = 'subject';
             sendData.filter = filter;
-            $.post('/class/update/dropdown',sendData,function(data){
-                for(let i in data){
-                    let element = `<option value = ${data[i]} > ${data[i]} </option>`
+            $.post('/class/update/dropdown',sendData,function(result){
+                for(let i in result){
+                    let element = `<option value = ${result[i]} > ${result[i]} </option>`
                     $('#subject').append(element);
                 }
             })
